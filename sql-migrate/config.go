@@ -8,19 +8,15 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/rubenv/sql-migrate"
+	migrate "github.com/rubenv/sql-migrate"
 	"gopkg.in/gorp.v1"
 	"gopkg.in/yaml.v2"
 
-	_ "github.com/go-sql-driver/mysql"
 	_ "github.com/lib/pq"
-	_ "github.com/mattn/go-sqlite3"
 )
 
 var dialects = map[string]gorp.Dialect{
-	"sqlite3":  gorp.SqliteDialect{},
 	"postgres": gorp.PostgresDialect{},
-	"mysql":    gorp.MySQLDialect{Engine: "InnoDB", Encoding: "UTF8"},
 }
 
 var ConfigFile string
