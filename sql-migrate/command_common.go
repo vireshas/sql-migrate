@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/rubenv/sql-migrate"
+	migrate "github.com/rubenv/sql-migrate"
 )
 
 func ApplyMigrations(dir migrate.MigrationDirection, dryrun bool, limit int) error {
@@ -12,6 +12,7 @@ func ApplyMigrations(dir migrate.MigrationDirection, dryrun bool, limit int) err
 		return fmt.Errorf("Could not parse config: %s", err)
 	}
 
+	fmt.Println(env)
 	db, dialect, err := GetConnection(env)
 	if err != nil {
 		return err
