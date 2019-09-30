@@ -86,8 +86,6 @@ func GetEnvironment() (*Environment, error) {
 }
 
 func GetConnection(env *Environment) (*sql.DB, string, error) {
-	fmt.Println(env.DataSource)
-	fmt.Println(env.Dialect)
 	db, err := sql.Open(env.Dialect, env.DataSource)
 	if err != nil {
 		return nil, "", fmt.Errorf("Cannot connect to database: %s", err)
